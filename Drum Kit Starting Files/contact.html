@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Contact List</title>
+</head>
+<body>
+
+    <!-- Contact List Section -->
+    <section id="contact-list">
+        <!-- Your contact list display goes here -->
+        <!-- Inside the #contact-list section -->
+    <table id="contacts-table">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Action</th>
+        </tr>
+        <!-- Contacts will be dynamically added here -->
+    </table>
+
+    </section>
+
+    <!-- Add Contact Form -->
+    <section id="add-contact">
+        <!-- Your add contact form goes here -->
+        <!-- Inside the #add-contact section -->
+    <form id="add-contact-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" required>
+
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" required>
+
+        <button type="button" onclick="addContact()">Add Contact</button>
+    </form>
+
+    </section>
+
+    <script>
+        // Inside app.js
+
+let contacts = []; // This array will store the contacts
+
+function addContact() {
+    // Get values from the form
+    let name = document.getElementById('name').value;
+    let email = document.getElementById('email').value;
+    let phone = document.getElementById('phone').value;
+
+    // Validate input
+    if (!name || !email || !phone) {
+        alert('Please enter valid values for name, email, and phone.');
+        return;
+    }
+
+    // Create a contact object
+    let contact = {
+        name: name,
+        email: email,
+        phone: phone
+    };
+
+    // Add the contact to the array
+    contacts.push(contact);
+
+    // Clear the form
+    document.getElementById('name').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('phone').value = '';
+
+    // Update the display
+    displayContacts();
+}
+
+function displayContacts() {
+    // Display the contacts in the #contacts-table
+    let contactsTable = document.getElementById('contacts-table');
+    contactsTable.innerHTML = '';
+
+    if (contacts.length === 0) {
+        contactsTable.innerHTML = '<p>No contacts added.</p>';
+        return;
+    }
+
+    contacts.forEach(contact => {
+        let row = contactsTable.insertRow();
+        row.innerHTML = `<td>${contact.name}</td><td>${contact.email}</td><td>${contact.phone}</td><td><button onclick="deleteContact('${contact.email}')">Delete</button></td>`;
+    });
+}
+
+function deleteContact(email) {
+    // Delete the contact with the given email
+    contacts = contacts.filter(contact => contact.email !== email);
+
+    // Update the display
+    displayContacts();
+}
+
+    </script>
+
+    <!-- Your JavaScript file goes here -->
+
+</body>
+</html>

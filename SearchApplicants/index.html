@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Candidate Search</title>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+
+  <h1>Candidate Search</h1>
+
+  <label for="skillInput">Search by Skill:</label>
+  <input type="text" id="skillInput" placeholder="Enter a skill">
+
+  <button onclick="searchCandidates()">Search</button>
+
+  <ul id="results"></ul>
+
+  <script>
+    // Read candidates data from the JSON file
+    let candidatesData;
+
+    // Wait for the JSON file to be loaded before calling searchCandidates
+    $.getJSON('candidates.json', function(data) {
+      candidatesData = data.candidates;
+      console.log('Data loaded:', candidatesData);
+    });
+
+    function searchCandidates() {
+      const skillInput = $('#skillInput').val().toLowerCase();
+      console.log('Search Term:', skillInput);
+      const results = [];
+
+      // Filter candidates based on the entered skill
+      candidatesData.forEach(candidate => {
+        console.log('Candidate:', candidate.skills);
+        if (candidate.skills.map(skill => skill.toLowerCase().trim()).includes(skillInput.toLowerCase().trim())) {
+        console.log('Match found for:', candidate.fullName);
+        results.push(candidate.fullName);
+}
+      });
+
+      // Display results
+      const resultsList = $('#results');
+      resultsList.empty();
+
+      if (results.length === 0) {
+        resultsList.append('<li>No matching candidates found</li>');
+      } else {
+        results.forEach(result => {
+          resultsList.append(`<li>${result}</li>`);
+        });
+      }
+    }
+  </script>
+
+</body>
+</html>

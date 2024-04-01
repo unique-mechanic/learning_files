@@ -1,0 +1,36 @@
+
+{
+    "candidates": [
+      {
+        "id": 1,
+        "fullName": "John Doe",
+        "email": "john.doe@email.com",
+        "location": "New York",
+        "experienceYears": 5,
+        "education": "Bachelor in Computer Science",
+        "resumeUrl": "resume_link_1",
+        "skills": ["Java", "Python", "SQL"]
+      },
+      {
+        "id": 2,
+        "fullName": "Jane Smith",
+        "email": "jane.smith@email.com",
+        "location": "San Francisco",
+        "experienceYears": 3,
+        "education": "Master in Data Science",
+        "resumeUrl": "resume_link_2",
+        "skills": ["Python", "React", "Data Analysis"]
+      },
+      {
+        "id": 3,
+        "fullName": "Bob Johnson",
+        "email": "bob.johnson@email.com",
+        "location": "Chicago",
+        "experienceYears": 7,
+        "education": "Bachelor in Engineering",
+        "resumeUrl": "resume_link_3",
+        "skills": ["Java", "JavaScript", "SQL"]
+      }
+    ]
+  }
+  

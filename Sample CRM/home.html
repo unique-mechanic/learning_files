@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    
+    <title>Simple CRM</title>
+</head>
+<body>
+
+    <div id="crm-container">
+        <h1>Customer Relationship Management (CRM)</h1>
+
+        <!-- Form to add a new customer -->
+        <form id="add-customer-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" required>
+
+            <button type="button" onclick="addCustomer()">Add Customer</button>
+        </form>
+
+        <!-- Display all customers -->
+        <div id="customer-list">
+            <h2>All Customers:</h2>
+            <ul id="customer-list-ul">
+                <!-- Customer details will be dynamically added here -->
+            </ul>
+        </div>
+
+        <!-- Search for a customer by email -->
+        <form id="search-customer-form">
+            <label for="search-email">Search Customer by Email:</label>
+            <input type="email" id="search-email" required>
+
+            <button type="button" onclick="searchCustomer()">Search</button>
+        </form>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
