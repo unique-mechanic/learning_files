@@ -13,7 +13,8 @@ const port = 3000;
 app.use(bodyParser.urlencoded({ extended: true}));
 
 app.post("/submit", (req, res) => {
-  res.sendFile(__dirname + "/public/index.html");
+  //res.sendFile(__dirname + "/public/index.html");
+  res.redirect("/");
   console.log(req.body);
 });
 

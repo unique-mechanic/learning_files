@@ -11,7 +11,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 const port = 3000;
 
-app.use(bodyParser.urlencoded({ extended: true}));
+app.use(bodyParser.urlencoded({ extended: true})); //this linek always have to be on top so that body Parser works.
 
   app.post("/submit", (req, res) => {
     res.sendFile(__dirname + "/public/index.html");
